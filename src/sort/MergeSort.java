@@ -7,7 +7,7 @@ import java.util.Objects;
  */
 public class MergeSort {
 
-    public <T> void sort(T[] array, int low, int high) {
+    public <T extends Comparable> void sort(T[] array, int low, int high) {
         if (low < high) {
             int middle = (low + high) / 2;
             sort(array, low, middle);
@@ -22,7 +22,7 @@ public class MergeSort {
         int j = middle + 1;
         int k = low;
         while (i <= middle && j <= high) {
-            if (((Comparable) array[i]).compareTo(array[j]) < 0) {
+            if (((Comparable)array[i]).compareTo(array[j]) < 0) {
                 temp[k] = array[i];
                 i++;
             } else {

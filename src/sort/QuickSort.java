@@ -6,7 +6,7 @@ package sort;
 public class QuickSort {
 
 
-    public void sort(int[] array, int low, int high) {
+    public <T extends Comparable> void sort(T[] array, int low, int high) {
         int pivot = partition(array, low, high);
         if (low < pivot - 1)
             sort(array, low, pivot - 1);
@@ -14,15 +14,15 @@ public class QuickSort {
             sort(array, pivot, high);
     }
 
-    private int partition(int[] array, int low, int high) {
+    private <T extends Comparable> int partition(T[] array, int low, int high) {
         int i = low;
         int j = high;
-        int pivot = array[(low + high) / 2];
+        T pivot = array[(low + high) / 2];
         while (i <= j) {
-            while (array[i] < pivot) {
+            while (array[i].compareTo(pivot) < 0) {
                 i++;
             }
-            while (array[j] > pivot) {
+            while (array[j].compareTo(pivot) > 0) {
                 j--;
             }
             if (i <= j) {
@@ -34,8 +34,8 @@ public class QuickSort {
         return i;
     }
 
-    private void swap(int[] array, int i, int j) {
-        int temp = array[i];
+    private <T> void swap(T[] array, int i, int j) {
+        T temp = array[i];
         array[i] = array[j];
         array[j] = temp;
     }

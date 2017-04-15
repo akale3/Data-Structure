@@ -7,14 +7,14 @@ import java.util.Arrays;
  */
 public class SelectionSort {
 
-    public <T> void sort(T[] array) {
+    public <T extends Comparable> void sort(T[] array) {
 
         int minIndex;
         for (int i = 0; i < array.length - 1; i++) {
             boolean minIndexFound = false;
             minIndex = i;
             for (int j = i + 1; j < array.length; j++) {
-                if (((Comparable) array[j]).compareTo(array[minIndex]) < 0) {
+                if (array[j].compareTo(array[minIndex]) < 0) {
                     minIndex = j;
                     minIndexFound = true;
                 }

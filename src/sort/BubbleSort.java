@@ -5,13 +5,13 @@ package sort;
  */
 public class BubbleSort {
 
-    public <T> void sort(T array[]) {
+    public <T extends Comparable> void sort(T array[]) {
 
         boolean isSorted;
         for (int i = 0; i < array.length - 1; i++) {
             isSorted = true;
             for (int j = 0; j < array.length - 1 - i; j++) {
-                if (((Comparable) array[j + 1]).compareTo(array[j]) < 0) {
+                if (array[j + 1].compareTo(array[j]) < 0) {
                     swap(array, j, j + 1);
                     isSorted = false;
                 }

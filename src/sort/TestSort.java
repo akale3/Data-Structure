@@ -29,7 +29,7 @@ public class TestSort {
 
     @Test
     public void test_quick_sort() {
-        int[] quickArray = {1, 43, 343, 123, 11, 4, 2};
+        Integer[] quickArray = {1, 43, 343, 123, 11, 4, 2};
         QuickSort quickSort = new QuickSort();
         quickSort.sort(quickArray, 0, quickArray.length - 1);
         Assert.assertEquals("Array is not sorted.", Arrays.toString(quickArray), "[1, 2, 4, 11, 43, 123, 343]");
